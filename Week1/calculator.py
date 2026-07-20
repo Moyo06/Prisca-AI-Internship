@@ -5,30 +5,34 @@ while True:
    print("3. Multiplication(*)")
    print("4. Division(/)")
    
-   choice = input(" choose between number 1 to 4")
+   choice = input(" choose a number between 1 to 4")
 
    if choice not in ["1", "2", "3", "4"]:
       print("Invalid choice, choose betwwen number 1 to 4")
       continue
 
-   number1 = int(input("Enter the first number"))
-   number2 = int(input("Enter the second number"))
-
-      
+   while True:
+      try:
+        number1 = float(input("Enter the first number"))
+        number2 = float(input("Enter the second number"))
+        break
+      except ValueError:
+         print("Please enter valid numbers, try again.")
+         
    if choice == "1":
-      print(number1 + number2)
+      print("Result:", number1 + number2)
    elif choice == "2":
-      print(number1 - number2)
+      print("Result:", number1 - number2)
    elif choice == "3":
-      print(number1 * number2)
+      print("Result:", number1 * number2)
    elif choice == "4":
       if number2 == 0: 
-       print("Undefined")
-       continue
-      print(number1 / number2)
+         print("Undefined")
+      else:
+         print("Result:", number1 / number2)
    
    again = input("Do you want to continue?(yes/no): ")
    
-   if again != "yes":
+   if again.lower() != "yes":
       print("Thanks for using my calculator")
       break
